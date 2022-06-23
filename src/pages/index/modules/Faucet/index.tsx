@@ -104,7 +104,7 @@ const Faucet = () => {
             </div>
             <button
               onClick={onSend}
-              className="w-full mt-4 sm:mt-0 sm:w-auto sm:ml-4  rounded-lg text-white bg-[#5442A7] py-3 px-4 text-center font-bold"
+              className="w-full btn mt-4 sm:mt-0 sm:w-auto sm:ml-4  rounded-lg text-white bg-[#5442A7] py-3 px-4 text-center font-bold"
             >
               Send Me ETH
             </button>

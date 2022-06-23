@@ -117,7 +117,7 @@ const Header = () => {
           <div className="hidden lg:block ml-auto">
             <button
               onClick={addChain}
-              className="rounded text-white bg-[#5460EF] py-3 px-4 flex items-center"
+              className="rounded btn text-white bg-[#5460EF] py-3 px-4 flex items-center"
             >
               <AddIcon />
               <span className="mr-2 font-bold ml-2">Add To Metamask</span>
@@ -172,7 +172,7 @@ const Header = () => {
                 rel="noreferrer"
                 target="_self"
               >
-                <button className="rounded text-white bg-[#5460EF] py-3 px-4 flex justify-center items-center w-full">
+                <button className="rounded btn text-white bg-[#5460EF] py-3 px-4 flex justify-center items-center w-full">
                   <span className="mr-2 font-bold">Join Discord</span>
                   <DiscordIcon className="w-5 h-5 text-white" />
                 </button>

@@ -10,14 +10,14 @@ const Questions = () => {
           Frequently asked questions
         </div>
         <div className="space-y-4 mt-6 md:space-y-8 md:mt-10">
-          <FoldableBox title="How dose this work?">
+          <FoldableBox isOpen={true} title="How does this work?">
             <div>
               This faucet is running on the RockX Sepolia network. To prevent
               malicious actors from exhausting all available funds or
               accumulating enough Ether to mount long running spam attacks,
               requests are tied to common 3rd party social network accounts.
-              Anyone having a Twitter or Facebook account may request funds
-              within the permitted limits.
+              Anyone having a Twitter account may request funds within the
+              permitted limits.
             </div>
             <div className="flex items-start">
               <TwitterIcon className="text-white opacity-60 mt-2 md:w-8 md:h-8" />
@@ -44,7 +44,7 @@ const Questions = () => {
                 into the above input box and fire away!
               </div>
             </div>
-            <div className="flex items-start">
+            {/* <div className="flex items-start">
               <FBIcon className="text-white opacity-60 mt-2 md:w-8 md:h-8" />
               <div className="flex-1 ml-2 md:ml-4">
                 To request funds via Facebook, publish a new public post with
@@ -60,7 +60,7 @@ const Questions = () => {
                 </a>{' '}
                 into the above input box and fire away!
               </div>
-            </div>
+            </div> */}
           </FoldableBox>
           <FoldableBox title="What is the Sepolia testnet?">
             <div>

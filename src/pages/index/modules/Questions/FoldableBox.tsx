@@ -4,9 +4,10 @@ import { ReactComponent as ArrowIcon } from '../../../../assets/icons/arrow.svg'
 interface FoldableBoxProps {
   title: string;
   children: React.ReactNode;
+  isOpen?: boolean;
 }
-const FoldableBox = ({ title, children }: FoldableBoxProps) => {
-  const [open, setOpen] = useState(false);
+const FoldableBox = ({ title, children, isOpen = false }: FoldableBoxProps) => {
+  const [open, setOpen] = useState(isOpen);
   return (
     <div className="bg-[#1E2A49] rounded-xl  ">
       <div

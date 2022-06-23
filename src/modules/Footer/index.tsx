@@ -1,11 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
+import * as Yup from 'yup';
+import request from '../../utils/request';
+import useSWRMutation from 'swr/mutation';
+import { Message } from '@arco-design/web-react';
 import { ReactComponent as TwitterIcon } from '../../assets/icons/twitter.svg';
 import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg';
 import { ReactComponent as TelegramIcon } from '../../assets/icons/telegram.svg';
 import { ReactComponent as MediumIcon } from '../../assets/icons/medium.svg';
 import bgImage from './images/BG.png';
 import mobileBgImage from './images/mobile-BG.png';
+const emailSchema = Yup.string()
+  .email('Invalid email address')
+  .required('Email is required');
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const { trigger, isMutating } = useSWRMutation(
+    'https://rockx-web-be.herokuapp.com/contacts/subscribe',
+    (url, { arg }) => request.post(url, arg)
+  );
+  const onSubscribe = () => {
+    emailSchema
+      .validate(email)
+      .then(async email_id => {
+        try {
+          const res = await trigger({
+            email_id,
+            tags: ['sepolia-faucet-footer'],
+          });
+          if (res?.data?.data === 'success') {
+            Message.success('Email successfully subscribed!');
+          }
+        } catch (e) {
+          Message.error('Internal error while subscribing!');
+        }
+      })
+      .catch(error => {
+        Message.error(error.errors[0]);
+      });
+  };
   return (
     <>
       <div className="relative mt-8 sm:mt-14 md:mt-20 lg:mt-30">
@@ -29,12 +61,24 @@ const Footer = () => {
                 placeholder="Enter your email address"
                 type="text"
                 className="block px-2 flex-1 md:py-2"
+                value={email}
+                onChange={e => {
+                  setEmail(e.target.value);
+                }}
               />
-              <button className="rounded-full bg-[#43DDAC] text-white py-2 px-4 md:font-bold md:hidden">
+              <button
+                onClick={onSubscribe}
+                disabled={isMutating}
+                className="rounded-full btn bg-[#43DDAC] text-white py-2 px-4 md:font-bold md:hidden"
+              >
                 Subscribe
               </button>
             </div>
-            <button className="hidden rounded-xl bg-[#43DDAC] text-white py-2 px-4 font-bold md:block ml-4">
+            <button
+              onClick={onSubscribe}
+              disabled={isMutating}
+              className="hidden btn rounded-xl bg-[#43DDAC] text-white py-2 px-4 font-bold md:block ml-4"
+            >
               Subscribe Now
             </button>
           </div>
