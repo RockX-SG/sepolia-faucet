@@ -103,7 +103,7 @@ const Header = () => {
                 rel="noreferrer"
                 target="_blank"
               >
-                <TwitterIcon className="text-white hover:text-[#02A9F4]" />
+                <TwitterIcon className="text-white hover:text-[#5442A7]" />
               </a>
             </div>
             <a
@@ -111,13 +111,13 @@ const Header = () => {
               rel="noreferrer"
               target="_blank"
             >
-              <DiscordIcon className="w-6 h-6 text-white hover:text-[#02A9F4]" />
+              <DiscordIcon className="w-6 h-6 text-white hover:text-[#5442A7]" />
             </a>
           </div>
           <div className="hidden lg:block ml-auto">
             <button
               onClick={addChain}
-              className="rounded btn text-white bg-[#5460EF] py-3 px-4 flex items-center"
+              className="rounded btn text-white bg-[#5442A7] py-3 px-4 flex items-center"
             >
               <AddIcon />
               <span className="mr-2 font-bold ml-2">Add To Metamask</span>

@@ -87,10 +87,10 @@ const Faucet = () => {
 
   return (
     <div className="container mx-auto mt-20 md:mt-40">
-      <div className="text-[#4CDCAD] text-center text-2xl md:text-[44px] font-semibold">
+      <div className="text-white text-center text-2xl md:text-[44px] font-semibold">
         RockX Sepolia Testnet Faucet
       </div>
-      <div className="text-white border-dotted border-[#4CDCAD] rounded-xl border mt-10 mx-2 lg:mt-20 lg:w-[800px] lg:mx-auto">
+      <div className="text-white  rounded-xl bg-[#1E2949] mt-10 mx-2 lg:mt-20 lg:w-[800px] lg:mx-auto">
         <div className="p-4 lg:p-8">
           <div className="sm:flex">
             <div className="sm:flex-1 border-2 border-[#5442A7] rounded-lg flex items-center">
@@ -114,35 +114,36 @@ const Faucet = () => {
             <div>https://rpc-sepolia.rockx.com</div>
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-y-4 sm:grid-cols-4 py-4 px-8 lg:py-8 lg:px-12 border-t border-dotted border-[#4CDCAD] ">
+        <div className="border-t border-dotted opacity-40"></div>
+        <div className="grid grid-cols-2 gap-y-4 sm:grid-cols-4 py-4 px-8 lg:py-8 lg:px-12">
           <div>
-            <div className="font-medium">Peers</div>
-            <div className="font-bold text-lg text-[#4CDCAD]">
+            <div className="font-medium opacity-50">Peers</div>
+            <div className="font-bold text-lg text-[#E1E2E6]">
               {peers.toLocaleString()}
             </div>
           </div>
           <div>
-            <div className="font-medium">Blocks</div>
-            <div className="font-bold text-lg text-[#4CDCAD]">
+            <div className="font-medium opacity-50">Blocks</div>
+            <div className="font-bold text-lg text-[#E1E2E6]">
               {blocks.toLocaleString()}
             </div>
           </div>
           <div>
-            <div className="font-medium">Ethers</div>
-            <div className="font-bold text-lg text-[#4CDCAD]">
+            <div className="font-medium opacity-50">Ethers</div>
+            <div className="font-bold text-lg text-[#E1E2E6]">
               {funds.toLocaleString()} ETH
             </div>
           </div>
           <div>
-            <div className="font-medium">Institutions Funded</div>
-            <div className="font-bold text-lg text-[#4CDCAD]">
+            <div className="font-medium opacity-50">Institutions Funded</div>
+            <div className="font-bold text-lg text-[#E1E2E6]">
               {funded.toLocaleString()}
             </div>
           </div>
         </div>
       </div>
       {pendingRequsets.length > 0 && (
-        <div className="text-white p-4 overflow-auto flex lg:p-8 border-dotted border-[#4CDCAD] rounded-xl border mt-6 mx-2 lg:mt-12 lg:w-[800px] lg:mx-auto">
+        <div className="text-white p-4 overflow-auto flex bg-[#172343] lg:p-8 rounded-xl mt-6 mx-2 lg:mt-12 lg:w-[800px] lg:mx-auto">
           <div className="flex-1 space-y-4">
             <div className="text-lg font-bold">Pending Transactions</div>
             {pendingRequsets.map(item => (

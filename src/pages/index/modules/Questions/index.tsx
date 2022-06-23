@@ -1,7 +1,6 @@
 import React from 'react';
 import FoldableBox from './FoldableBox';
 import { ReactComponent as TwitterIcon } from '../../../../assets/icons/twitter.svg';
-import { ReactComponent as FBIcon } from '../../../../assets/icons/fb.svg';
 const Questions = () => {
   return (
     <div className="mx-auto container">

@@ -9,7 +9,7 @@ interface FoldableBoxProps {
 const FoldableBox = ({ title, children, isOpen = false }: FoldableBoxProps) => {
   const [open, setOpen] = useState(isOpen);
   return (
-    <div className="bg-[#1E2A49] rounded-xl  ">
+    <div className="bg-[#172343] rounded-xl  ">
       <div
         onClick={() => setOpen(prevState => !prevState)}
         className="py-4 px-4 md:py-8 md:px-8 text-white cursor-pointer font-bold text-xl flex items-center"
