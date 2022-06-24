@@ -19,11 +19,11 @@ const Questions = () => {
               permitted limits.
             </div>
             <div className="flex items-start">
-              <TwitterIcon className="text-white opacity-60 mt-2 md:w-8 md:h-8" />
+              <TwitterIcon className="mt-2 md:w-8 md:h-8" />
               <div className="flex-1 ml-2 md:ml-4">
                 To request funds via Twitter, make a{' '}
                 <a
-                  className="text-[#43ddac] font-medium my-4 text-base"
+                  className="text-[#42ddac] font-medium my-4 text-base"
                   href="https://twitter.com/intent/tweet?text=Requesting%20faucet%20funds%20into%200x0000000000000000000000000000000000000000%20on%20the%20%23Rinkeby%20%23Ethereum%20test%20network."
                   target="_blank"
                   rel="noreferrer"
@@ -33,7 +33,7 @@ const Questions = () => {
                 with your Ethereum address pasted into the contents (surrounding
                 text doesn't matter). Copy-paste the{' '}
                 <a
-                  className="text-[#43ddac] font-medium my-4 text-base"
+                  className="text-[#42ddac] font-medium my-4 text-base"
                   href="https://support.twitter.com/articles/80586"
                   target="_blank"
                   rel="noreferrer"
@@ -50,7 +50,7 @@ const Questions = () => {
                 your Ethereum address embedded into the content (surrounding
                 text doesn't matter). Copy-paste the{' '}
                 <a
-                  className="text-[#43ddac] font-medium my-4 text-base"
+                  className="text-[#42ddac] font-medium my-4 text-base"
                   href="https://www.facebook.com/help/community/question/?id=282662498552845"
                   target="_blank"
                   rel="noreferrer"

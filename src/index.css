@@ -4,7 +4,7 @@
 
 @layer components {
   .btn {
-    @apply hover:opacity-90 transition-all active:shadow-inner active:shadow-gray-800;
+    @apply hover:opacity-90 transition-all active:opacity-80;
   }
 }
 

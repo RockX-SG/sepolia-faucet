@@ -69,7 +69,7 @@ const Footer = () => {
               <button
                 onClick={onSubscribe}
                 disabled={isMutating}
-                className="rounded-full btn bg-[#43DDAC] text-white py-2 px-4 md:font-bold md:hidden"
+                className="rounded-full btn bg-[#42ddac] text-white py-2 px-4 md:font-bold md:hidden"
               >
                 Subscribe
               </button>
@@ -77,7 +77,7 @@ const Footer = () => {
             <button
               onClick={onSubscribe}
               disabled={isMutating}
-              className="hidden btn rounded-xl bg-[#43DDAC] text-white py-2 px-4 font-bold md:block ml-4"
+              className="hidden btn rounded-xl bg-[#42ddac] text-white py-2 px-4 font-bold md:block ml-4"
             >
               Subscribe Now
             </button>
@@ -92,7 +92,7 @@ const Footer = () => {
               <div>
                 <a
                   href="https://jobs.wrk.xyz/rockx"
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   target="_self"
                 >
                   Careers
@@ -101,7 +101,7 @@ const Footer = () => {
               <div>
                 <a
                   href="https://www.rockx.com/contact"
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   target="_self"
                 >
                   Contact Us
@@ -113,7 +113,7 @@ const Footer = () => {
               <div>
                 <a
                   href="https://www.rockx.com/staking"
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   target="_self"
                 >
                   Staking Service
@@ -122,7 +122,7 @@ const Footer = () => {
               <div>
                 <a
                   href="https://access.rockx.com/"
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   target="_self"
                 >
                   Access Node API
@@ -134,7 +134,7 @@ const Footer = () => {
               <div>
                 <a
                   href="https://blog.rockx.com/"
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   target="_self"
                 >
                   Blog
@@ -143,7 +143,7 @@ const Footer = () => {
               <div>
                 <a
                   href="https://help.rockx.com/"
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   target="_self"
                 >
                   Help Center
@@ -152,7 +152,7 @@ const Footer = () => {
               <div>
                 <a
                   href="https://www.rockx.com/resources"
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   target="_self"
                 >
                   Resources
@@ -160,7 +160,7 @@ const Footer = () => {
               </div>
               <div>
                 <a
-                  className="hover:text-[#43ddac]"
+                  className="hover:text-[#42ddac]"
                   href="https://drive.google.com/file/d/1xZFxd9S0vjSewkfgJKaIywbDJe_gQZjo/view?usp=sharing"
                   target="_self"
                 >
@@ -173,7 +173,7 @@ const Footer = () => {
               <div>Contact us anytime to get support.</div>
               <div>
                 <a
-                  className="text-[#43ddac] font-medium block my-4 text-base"
+                  className="text-[#42ddac] font-medium block my-4 text-base"
                   href="mailto:inquiry@rockx.com"
                   target="_blank"
                   rel="noreferrer"

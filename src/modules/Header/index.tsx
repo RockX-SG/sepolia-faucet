@@ -97,27 +97,29 @@ const Header = () => {
             ))}
           </ul>
           <div className="hidden lg:flex text-white items-center mr-8">
-            <div className="mr-8">
+            <div className="mr-6">
               <a
                 href="https://twitter.com/rockx_official"
                 rel="noreferrer"
                 target="_blank"
+                className="flex justify-center items-center w-10 h-10 rounded-full transition-all hover:bg-[rgba(255,255,255,0.08)] "
               >
-                <TwitterIcon className="text-white hover:text-[#5442A7]" />
+                <TwitterIcon className="text-white" />
               </a>
             </div>
             <a
               href="https://discord.com/invite/YJzs4UwsTp"
               rel="noreferrer"
               target="_blank"
+              className="flex justify-center items-center w-10 h-10 rounded-full transition-all hover:bg-[rgba(255,255,255,0.08)] "
             >
-              <DiscordIcon className="w-6 h-6 text-white hover:text-[#5442A7]" />
+              <DiscordIcon className="w-6 h-6 text-white" />
             </a>
           </div>
           <div className="hidden lg:block ml-auto">
             <button
               onClick={addChain}
-              className="rounded btn text-white bg-[#5442A7] py-3 px-4 flex items-center"
+              className="rounded btn text-[#101C3D] bg-[#42ddac] py-3 px-4 flex items-center"
             >
               <AddIcon />
               <span className="mr-2 font-bold ml-2">Add To Metamask</span>
