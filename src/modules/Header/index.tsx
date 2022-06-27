@@ -1,5 +1,4 @@
 import React, { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { Drawer } from '@arco-design/web-react';
 import { Message } from '@arco-design/web-react';
@@ -14,6 +13,7 @@ import { ReactComponent as LinkedinIcon } from '../../assets/icons/linkedin.svg'
 import { ReactComponent as TelegramIcon } from '../../assets/icons/telegram.svg';
 import { ReactComponent as MediumIcon } from '../../assets/icons/medium.svg';
 import { ReactComponent as AddIcon } from '../../assets/icons/add.svg';
+import { ReactComponent as EthereumIcon } from '../../assets/icons/ethereum.svg';
 const Header = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const ethereum = useWeb3Ethereum();
@@ -78,9 +78,9 @@ const Header = () => {
     <div className="sticky top-0 shadow-xl z-50 bg-[#111D3C]">
       <div className="container mx-auto">
         <div className="py-3 flex justify-between items-center px-4 md:py-6">
-          <Link to="/" className="mr-2">
+          <a href="https://www.rockx.com/" className="mr-2">
             <RockXIcon className="w-40" />
-          </Link>
+          </a>
           <ul className="hidden lg:flex items-center space-x-8 flex-1 px-8">
             {links.map((link, i) => (
               <li key={i} className="ml-auto">
@@ -97,6 +97,9 @@ const Header = () => {
             ))}
           </ul>
           <div className="hidden lg:flex text-white items-center mr-8">
+            <div className="mr-6">
+              <EthereumIcon />
+            </div>
             <div className="mr-6">
               <a
                 href="https://twitter.com/rockx_official"

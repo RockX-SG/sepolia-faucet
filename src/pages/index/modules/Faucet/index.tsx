@@ -15,7 +15,7 @@ const Faucet = () => {
   const [pendingRequsets, setPendingRequests] = useState<RequestType[]>([]);
   const onSend = (e: any) => {
     e.preventDefault();
-    window.grecaptcha.ready(() => {
+    window.grecaptcha?.ready(() => {
       window.grecaptcha
         .execute(SITE_KEY, { action: 'submit' })
         .then((token: string) => {
