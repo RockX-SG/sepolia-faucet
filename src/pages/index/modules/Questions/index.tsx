@@ -24,7 +24,7 @@ const Questions = () => {
                 To request funds via Twitter, make a{' '}
                 <a
                   className="text-[#42ddac] font-medium my-4 text-base"
-                  href="https://twitter.com/intent/tweet?text=Requesting%20faucet%20funds%20into%200x0000000000000000000000000000000000000000%20on%20%40rockx_official%20%40SepoliaFaucet%20test%20network."
+                  href="https://twitter.com/intent/tweet?text=Requesting%20faucet%20funds%20into%200x0000000000000000000000000000000000000000%20on%20%40rockx_official%20%23Sepolia%20test%20network."
                   target="_blank"
                   rel="noreferrer"
                 >
