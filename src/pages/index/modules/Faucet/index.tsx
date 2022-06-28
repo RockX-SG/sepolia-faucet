@@ -96,8 +96,8 @@ const Faucet = () => {
             <div className="sm:flex-1 border-2 border-[#5442A7] rounded-lg flex items-center">
               <input
                 type="text"
-                className="bg-[transparent] block px-4 w-full h-12 text-white placeholder:text-white"
-                placeholder="Enter the URL containing your ETH address"
+                className="bg-[transparent] block px-4 w-full h-12 text-white font-medium placeholder:text-white placeholder:font-medium"
+                placeholder="Paste the tweet URL here"
                 value={url}
                 onChange={e => setUrl(e.target.value)}
               />

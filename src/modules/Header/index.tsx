@@ -100,7 +100,7 @@ const Header = () => {
             <div className="mr-6">
               <EthereumIcon />
             </div>
-            <div className="mr-6">
+            <div className="mr-4">
               <a
                 href="https://twitter.com/rockx_official"
                 rel="noreferrer"
