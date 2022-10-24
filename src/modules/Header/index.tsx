@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import { Drawer } from '@arco-design/web-react';
 import { Message } from '@arco-design/web-react';
 import useWeb3Ethereum from '../../data/useWeb3Ethereum';
-import useWeb3Provider from '../../data/useWeb3Provider';
+// import useWeb3Provider from '../../data/useWeb3Provider';
 import { CHAIN_ID } from '../../constants';
+import { ethers } from 'ethers';
 import { ReactComponent as RockXIcon } from '../../assets/images/rockx.svg';
 import { ReactComponent as DiscordIcon } from '../../assets/icons/discord.svg';
 import { ReactComponent as TwitterIcon } from '../../assets/icons/twitter.svg';
@@ -17,7 +18,7 @@ import { ReactComponent as EthereumIcon } from '../../assets/icons/ethereum.svg'
 const Header = () => {
   const [drawerVisible, setDrawerVisible] = useState(false);
   const ethereum = useWeb3Ethereum();
-  const provider = useWeb3Provider();
+  // const provider = useWeb3Provider();
   const links = useMemo(
     () => [
       {
@@ -45,30 +46,39 @@ const Header = () => {
   );
   const addChain = async () => {
     if (ethereum) {
-      const network = await provider?.getNetwork();
-      if (network?.chainId === CHAIN_ID) {
-        Message.warning('Sepolia Network has already been added to Metamask.');
+      await ethereum.request({
+        method: 'eth_requestAccounts',
+      });
+      const chainId = await ethereum.request({ method: 'eth_chainId' });
+      if (chainId === `0x${CHAIN_ID.toString(16)}`) {
+        Message.warning('Metamask has already been connected.');
       } else {
-        const params = [
-          {
-            chainId: `0x${CHAIN_ID.toString(16)}`,
-            chainName: 'Sepolia',
-            nativeCurrency: {
-              name: 'SEP',
-              symbol: 'SEP',
-              decimals: 18,
+        const sepoliaChainExisted =
+          ethers.providers.getNetwork(CHAIN_ID)?.chainId === CHAIN_ID;
+        if (sepoliaChainExisted) {
+          ethereum.request({
+            method: 'wallet_switchEthereumChain',
+            params: [{ chainId: `0x${CHAIN_ID.toString(16)}` }],
+          });
+        } else {
+          const params = [
+            {
+              chainId: `0x${CHAIN_ID.toString(16)}`,
+              chainName: 'Sepolia',
+              nativeCurrency: {
+                name: 'SEP',
+                symbol: 'SEP',
+                decimals: 18,
+              },
+              rpcUrls: ['https://rpc-sepolia.rockx.com'],
+              // rpcUrls: ['https://rpc.sepolia.dev'],
+              blockExplorerUrls: ['https://sepolia.etherscan.io'],
             },
-            rpcUrls: ['https://rpc-sepolia.rockx.com'],
-            // rpcUrls: ['https://rpc.sepolia.dev'],
-            blockExplorerUrls: ['https://sepolia.etherscan.io'],
-          },
-        ];
-        ethereum
-          .request({ method: 'wallet_addEthereumChain', params })
-          // .then(msg => {
-          //   Message.success('Added successfully');
-          // })
-          .catch(error => Message.error(error.message));
+          ];
+          ethereum
+            .request({ method: 'wallet_addEthereumChain', params })
+            .catch(error => Message.error(error.message));
+        }
       }
     } else {
       Message.warning('Please download the metaMask extension first');
@@ -125,7 +135,7 @@ const Header = () => {
               className="rounded btn text-[#101C3D] bg-[#42ddac] py-3 px-4 flex items-center"
             >
               <AddIcon />
-              <span className="mr-2 font-bold ml-2">Add To Metamask</span>
+              <span className="mr-2 font-bold ml-2">Connect Metamask</span>
             </button>
           </div>
           <div
