@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Message } from '@arco-design/web-react';
+import { ReactComponent as ArrowIcon } from './arrow.svg';
 import { RequestType } from '../../../../interface/blockRes';
 import dayjs from 'dayjs';
 import dayjsRelativeTime from 'dayjs/plugin/relativeTime';
@@ -90,7 +91,26 @@ const Faucet = () => {
       <div className="text-white text-center text-2xl md:text-[44px] font-semibold">
         RockX Sepolia Testnet Faucet
       </div>
-      <div className="text-white  rounded-xl bg-[#1E2949] mt-10 mx-2 lg:mt-20 lg:w-[800px] lg:mx-auto">
+      <div className="text-sm mx-2 lg:w-[800px] space-y-3 lg:space-x-3 lg:space-y-0 lg:mx-auto lg:flex mt-10 lg:mt-16">
+        <div className="text-white opacity-50 lg:ml-auto">
+          Get node access and build your dApp on
+        </div>
+        <a
+          href="https://access.rockx.com/product/ethereum-testnet-blockchain-api-for-web3-builders"
+          className="text-[#856DF1] flex items-center space-x-2 hover:underline"
+        >
+          <ArrowIcon />
+          <span>Ethereum Sepolia Testnet</span>
+        </a>
+        <a
+          href="https://access.rockx.com/product/ethereum-blockchain-api-for-web3-builders"
+          className="text-[#856DF1] flex items-center space-x-2 hover:underline"
+        >
+          <ArrowIcon />
+          <span>Ethereum Mainnet</span>
+        </a>
+      </div>
+      <div className="text-white rounded-xl bg-[#1E2949] mt-8 mx-2 lg:mt-6 lg:w-[800px] lg:mx-auto">
         <div className="p-4 lg:p-8">
           <div className="sm:flex">
             <div className="sm:flex-1 border-2 border-[#5442A7] rounded-lg flex items-center">
