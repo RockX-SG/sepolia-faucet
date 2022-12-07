@@ -1,12 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Message } from '@arco-design/web-react';
-import { ReactComponent as ArrowIcon } from './arrow.svg';
 import { RequestType } from '../../../../interface/blockRes';
 import dayjs from 'dayjs';
 import dayjsRelativeTime from 'dayjs/plugin/relativeTime';
+import LinkBgImages from '../../images/link-bg.png';
+import { ReactComponent as ArrowIcon } from '../../images/arrow.svg';
+import { ReactComponent as ETHIcon } from '../../images/eth.svg';
 dayjs.extend(dayjsRelativeTime);
 const SITE_KEY = '6LdbkIggAAAAAAhemSXLKtAQayPC-YHfs2kiT0N_';
-const Faucet = () => {
+interface FaucetProps {
+  showFixedTip: boolean;
+}
+const Faucet = ({ showFixedTip }: FaucetProps) => {
   const [peers, setPeers] = useState(0);
   const [funds, setFunds] = useState(0);
   const [blocks, setBlocks] = useState(0);
@@ -91,26 +96,7 @@ const Faucet = () => {
       <div className="text-white text-center text-2xl md:text-[44px] font-semibold">
         RockX Sepolia Testnet Faucet
       </div>
-      <div className="text-sm mx-2 lg:w-[800px] space-y-3 lg:space-x-3 lg:space-y-0 lg:mx-auto lg:flex mt-10 lg:mt-16">
-        <div className="text-white opacity-50 lg:ml-auto">
-          Get node access and build your dApp on
-        </div>
-        <a
-          href="https://access.rockx.com/product/ethereum-testnet-blockchain-api-for-web3-builders"
-          className="text-[#856DF1] flex items-center space-x-2 hover:underline"
-        >
-          <ArrowIcon />
-          <span>Ethereum Sepolia Testnet</span>
-        </a>
-        <a
-          href="https://access.rockx.com/product/ethereum-blockchain-api-for-web3-builders"
-          className="text-[#856DF1] flex items-center space-x-2 hover:underline"
-        >
-          <ArrowIcon />
-          <span>Ethereum Mainnet</span>
-        </a>
-      </div>
-      <div className="text-white rounded-xl bg-[#1E2949] mt-8 mx-2 lg:mt-6 lg:w-[800px] lg:mx-auto">
+      <div className="text-white relative rounded-xl bg-[#1E2949] mx-2 mt-10 lg:mt-16 lg:w-[800px] lg:mx-auto">
         <div className="p-4 lg:p-8">
           <div className="sm:flex">
             <div className="sm:flex-1 border-2 border-[#5442A7] rounded-lg flex items-center">
@@ -162,6 +148,38 @@ const Faucet = () => {
           </div>
         </div>
       </div>
+      {!showFixedTip && (
+        <div className="mt-6 mx-2 h-[216px] lg:mt-12 lg:w-[800px] lg:mx-auto relative rounded-xl overflow-hidden">
+          <div className="w-full h-full absolute top-0 left-0 px-6 py-8">
+            <div className="flex items-center text-white text-base">
+              <ETHIcon />
+              <div className="ml-3">
+                Get node access and build your dApp on:
+              </div>
+            </div>
+            <div className="mt-4 text-[#1C3067] space-y-2 w-full">
+              <a
+                className="flex space-x-2 items-center py-[6px] px-3 rounded-lg bg-opacity-25 bg-white transition-all hover:bg-opacity-50"
+                href="https://access.rockx.com/product/ethereum-blockchain-api-for-web3-builders"
+              >
+                <ArrowIcon />
+                <span>Ethereum Mainnet</span>
+              </a>
+              <a
+                className="flex space-x-2 items-center py-[6px] px-3 rounded-lg bg-opacity-25 bg-white transition-all hover:bg-opacity-50"
+                href="https://access.rockx.com/product/ethereum-testnet-blockchain-api-for-web3-builders"
+              >
+                <ArrowIcon />
+                <span>Ethereum Sepolia Testnet</span>
+              </a>
+            </div>
+          </div>
+          <div className="w-full h-full">
+            <img src={LinkBgImages} className="block w-full h-full" alt="" />
+          </div>
+        </div>
+      )}
+
       {pendingRequsets.length > 0 && (
         <div className="text-white p-4 overflow-auto flex bg-[#172343] lg:p-8 rounded-xl mt-6 mx-2 lg:mt-12 lg:w-[800px] lg:mx-auto">
           <div className="flex-1 space-y-4">

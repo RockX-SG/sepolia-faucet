@@ -44,3 +44,50 @@ body,
     margin-top: 20px;
   }
 }
+
+.rockx-fade-enter,
+.rockx-fade-appear {
+  opacity: 0;
+  animation-duration: 0.5s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  animation-play-state: paused;
+}
+.rockx-fade-leave {
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.6, -0.3, 0.74, 0.05);
+  animation-play-state: paused;
+}
+.rockx-fade-enter,
+.rockx-fade-enter-active,
+.rockx-fade-appear,
+.rockx-fade-appear-active {
+  animation-name: amFadeIn;
+  animation-play-state: running;
+}
+
+.rockx-fade-leave,
+.rockx-fade-leave-active {
+  animation-name: amFadeOut;
+  animation-play-state: running;
+}
+@keyframes amFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes amFadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
