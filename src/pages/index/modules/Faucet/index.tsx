@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useMemo } from 'react';
 import { Message } from '@arco-design/web-react';
 import { RequestType } from '../../../../interface/blockRes';
 import dayjs from 'dayjs';
@@ -19,6 +19,8 @@ const Faucet = ({ showFixedTip }: FaucetProps) => {
   const [url, setUrl] = useState('');
   const serverRef = useRef<WebSocket>();
   const [pendingRequsets, setPendingRequests] = useState<RequestType[]>([]);
+
+  const ETHIsZero = useMemo(() => funds === 0, [funds]);
   const onSend = (e: any) => {
     e.preventDefault();
     window.grecaptcha?.ready(() => {
@@ -106,11 +108,17 @@ const Faucet = ({ showFixedTip }: FaucetProps) => {
                 placeholder="Paste the tweet URL here"
                 value={url}
                 onChange={e => setUrl(e.target.value)}
+                disabled={ETHIsZero}
               />
             </div>
             <button
               onClick={onSend}
-              className="w-full btn mt-4 sm:mt-0 sm:w-auto sm:ml-4  rounded-lg text-white bg-[#5442A7] py-3 px-4 text-center font-bold"
+              disabled={ETHIsZero}
+              className={`w-full btn mt-4 sm:mt-0 sm:w-auto sm:ml-4 rounded-lg text-white  py-3 px-4 text-center font-bold ${
+                ETHIsZero
+                  ? 'bg-[#485673] cursor-not-allowed transpar'
+                  : 'bg-[#5442A7] cursor-pointer'
+              }`}
             >
               Send Me ETH
             </button>
@@ -135,7 +143,9 @@ const Faucet = ({ showFixedTip }: FaucetProps) => {
             </div>
           </div>
           <div>
-            <div className="font-medium opacity-50">Ethers</div>
+            <div className="font-medium opacity-50">
+              {ETHIsZero ? 'Remaining Balance' : 'Ethers'}
+            </div>
             <div className="font-bold text-lg text-[#E1E2E6]">
               {funds.toLocaleString()} ETH
             </div>
