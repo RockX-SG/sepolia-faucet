@@ -177,7 +177,7 @@ const Faucet = ({ showFixedTip }: FaucetProps) => {
               </a>
               <a
                 className="flex space-x-2 items-center py-[6px] px-3 rounded-lg bg-opacity-25 bg-white transition-all hover:bg-opacity-50"
-                href="https://access.rockx.com/product/ethereum-testnet-blockchain-api-for-web3-builders"
+                href="https://access.rockx.com/product/ethereum-sepolia-testnet-blockchain-api-for-web3-builders"
               >
                 <ArrowIcon />
                 <span>Ethereum Sepolia Testnet</span>
