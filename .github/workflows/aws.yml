@@ -1,0 +1,56 @@
+name: Deploy to Amazon ECS
+
+on:
+  push:
+    tags:
+      - '*'
+
+env:
+  ECR_REPOSITORY: rockx-fe
+  ECS_SERVICE: MY_ECS_SERVICE # set this to your Amazon ECS service name
+  ECS_CLUSTER: MY_ECS_CLUSTER # set this to your Amazon ECS cluster name
+  ECS_TASK_DEFINITION:
+    MY_ECS_TASK_DEFINITION # set this to the path to your Amazon ECS task definition
+    # file, e.g. .aws/task-definition.json
+  CONTAINER_NAME:
+    MY_CONTAINER_NAME # set this to the name of the container in the
+    # containerDefinitions section of your task definition
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build, tag, and push image to Amazon ECR
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          platform: linux/amd64
+          push: true
+          tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.ref_name }}
+          build-args: |
+            NEXT_PUBLIC_SHA=${{ github.sha }}
+            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
+          file: Dockerfile.standalone
