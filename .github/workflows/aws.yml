@@ -6,7 +6,7 @@ on:
       - '*'
 
 env:
-  ECR_REPOSITORY: rockx-fe
+  ECR_REPOSITORY: rockx-fe:faucet
   ECS_SERVICE: MY_ECS_SERVICE # set this to your Amazon ECS service name
   ECS_CLUSTER: MY_ECS_CLUSTER # set this to your Amazon ECS cluster name
   ECS_TASK_DEFINITION:
@@ -49,8 +49,7 @@ jobs:
           context: .
           platform: linux/amd64
           push: true
-          tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ github.ref_name }}
+          tags: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}-${{ github.ref_name }}
           build-args: |
             NEXT_PUBLIC_SHA=${{ github.sha }}
-            SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}
           file: Dockerfile.standalone
